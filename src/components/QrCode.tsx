@@ -12,7 +12,7 @@ export function QrCode({ value, size = 160 }: { value: string; size?: number }) 
     return (x >>> 0) / 4294967295;
   };
   const isFinder = (r: number, c: number) => {
-    const zones = [
+    const zones: Array<[number, number]> = [
       [0, 0],
       [0, n - 7],
       [n - 7, 0],
