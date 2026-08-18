@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PadresRouteImport } from './routes/padres'
+import { Route as QuioscoRouteImport } from './routes/quiosco'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const PadresRoute = PadresRouteImport.update({
   path: '/padres',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuioscoRoute = QuioscoRouteImport.update({
+  id: '/quiosco',
+  path: '/quiosco',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/padres': typeof PadresRoute
+  '/quiosco': typeof QuioscoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/padres': typeof PadresRoute
+  '/quiosco': typeof QuioscoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/padres': typeof PadresRoute
+  '/quiosco': typeof QuioscoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/padres'
+  fullPaths: '/' | '/padres' | '/quiosco'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/padres'
-  id: '__root__' | '/' | '/padres'
+  to: '/' | '/padres' | '/quiosco'
+  id: '__root__' | '/' | '/padres' | '/quiosco'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PadresRoute: typeof PadresRoute
+  QuioscoRoute: typeof QuioscoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PadresRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quiosco': {
+      id: '/quiosco'
+      path: '/quiosco'
+      fullPath: '/quiosco'
+      preLoaderRoute: typeof QuioscoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PadresRoute: PadresRoute,
+  QuioscoRoute: QuioscoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
