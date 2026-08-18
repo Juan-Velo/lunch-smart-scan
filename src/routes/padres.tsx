@@ -66,9 +66,14 @@ function PadresPage() {
   };
 
   const confirmar = () => {
-    if (!carrito.length) return toast.error("Agrega al menos un producto");
-    if (total > estudiante.presupuestoDiario)
-      return toast.error("El pedido excede el presupuesto diario");
+    if (!carrito.length) {
+      toast.error("Agrega al menos un producto");
+      return;
+    }
+    if (total > estudiante.presupuestoDiario) {
+      toast.error("El pedido excede el presupuesto diario");
+      return;
+    }
     crearPedido({ estudianteId: estudiante.id, items: carrito, total, kcal });
     setCarrito([]);
     toast.success("Preorden enviada al quiosco 🎉");
