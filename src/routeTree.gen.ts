@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PadresRouteImport } from './routes/padres'
 import { Route as QuioscoRouteImport } from './routes/quiosco'
+import { Route as ReportesRouteImport } from './routes/reportes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const QuioscoRoute = QuioscoRouteImport.update({
   path: '/quiosco',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportesRoute = ReportesRouteImport.update({
+  id: '/reportes',
+  path: '/reportes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/padres': typeof PadresRoute
   '/quiosco': typeof QuioscoRoute
+  '/reportes': typeof ReportesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/padres': typeof PadresRoute
   '/quiosco': typeof QuioscoRoute
+  '/reportes': typeof ReportesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/padres': typeof PadresRoute
   '/quiosco': typeof QuioscoRoute
+  '/reportes': typeof ReportesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/padres' | '/quiosco'
+  fullPaths: '/' | '/padres' | '/quiosco' | '/reportes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/padres' | '/quiosco'
-  id: '__root__' | '/' | '/padres' | '/quiosco'
+  to: '/' | '/padres' | '/quiosco' | '/reportes'
+  id: '__root__' | '/' | '/padres' | '/quiosco' | '/reportes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PadresRoute: typeof PadresRoute
   QuioscoRoute: typeof QuioscoRoute
+  ReportesRoute: typeof ReportesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuioscoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reportes': {
+      id: '/reportes'
+      path: '/reportes'
+      fullPath: '/reportes'
+      preLoaderRoute: typeof ReportesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PadresRoute: PadresRoute,
   QuioscoRoute: QuioscoRoute,
+  ReportesRoute: ReportesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
