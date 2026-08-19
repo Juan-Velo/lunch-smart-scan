@@ -13,6 +13,7 @@ export type Producto = {
   alergenos: Alergeno[];
   saludable: boolean;
   emoji: string;
+  stock?: number;
 };
 
 export type Estudiante = {
@@ -21,9 +22,11 @@ export type Estudiante = {
   grado: string;
   edad: number;
   peso: number;
+  talla?: number; // cm
   actividad: "baja" | "media" | "alta";
   alergias: Alergeno[];
   gustos: string[];
+  restricciones?: string[];
   presupuestoDiario: number;
   qr: string;
 };
@@ -40,29 +43,31 @@ export type Pedido = {
 };
 
 export const PRODUCTOS: Producto[] = [
-  { id: "p1", nombre: "Wrap integral de pollo", categoria: "Principal", kcal: 320, proteina: 22, carbos: 34, grasa: 9, azucar: 3, precio: 7.5, alergenos: ["gluten"], saludable: true, emoji: "🌯" },
-  { id: "p2", nombre: "Sándwich de palta y huevo", categoria: "Principal", kcal: 290, proteina: 13, carbos: 30, grasa: 12, azucar: 2, precio: 6.0, alergenos: ["gluten", "huevo"], saludable: true, emoji: "🥪" },
-  { id: "p3", nombre: "Quinua con pollo y verduras", categoria: "Principal", kcal: 340, proteina: 24, carbos: 38, grasa: 8, azucar: 4, precio: 8.5, alergenos: [], saludable: true, emoji: "🍲" },
-  { id: "p4", nombre: "Yogurt griego con granola", categoria: "Snack", kcal: 210, proteina: 11, carbos: 26, grasa: 6, azucar: 12, precio: 5.0, alergenos: ["lactosa", "frutos secos"], saludable: true, emoji: "🥣" },
-  { id: "p5", nombre: "Mix de frutos secos", categoria: "Snack", kcal: 180, proteina: 6, carbos: 12, grasa: 13, azucar: 4, precio: 4.5, alergenos: ["frutos secos"], saludable: true, emoji: "🥜" },
-  { id: "p6", nombre: "Mandarina pelada", categoria: "Fruta", kcal: 60, proteina: 1, carbos: 14, grasa: 0, azucar: 11, precio: 2.0, alergenos: [], saludable: true, emoji: "🍊" },
-  { id: "p7", nombre: "Manzana en gajos", categoria: "Fruta", kcal: 70, proteina: 0, carbos: 18, grasa: 0, azucar: 13, precio: 2.0, alergenos: [], saludable: true, emoji: "🍎" },
-  { id: "p8", nombre: "Uvas rojas", categoria: "Fruta", kcal: 85, proteina: 1, carbos: 21, grasa: 0, azucar: 18, precio: 2.5, alergenos: [], saludable: true, emoji: "🍇" },
-  { id: "p9", nombre: "Agua de piña sin azúcar", categoria: "Bebida", kcal: 45, proteina: 0, carbos: 11, grasa: 0, azucar: 8, precio: 2.5, alergenos: [], saludable: true, emoji: "🥤" },
-  { id: "p10", nombre: "Leche de avena", categoria: "Bebida", kcal: 120, proteina: 3, carbos: 18, grasa: 4, azucar: 9, precio: 3.5, alergenos: [], saludable: true, emoji: "🥛" },
-  { id: "p11", nombre: "Galleta rellena industrial", categoria: "Snack", kcal: 280, proteina: 2, carbos: 42, grasa: 12, azucar: 28, precio: 2.0, alergenos: ["gluten", "lactosa"], saludable: false, emoji: "🍪" },
-  { id: "p12", nombre: "Gaseosa 500ml", categoria: "Bebida", kcal: 210, proteina: 0, carbos: 53, grasa: 0, azucar: 53, precio: 3.0, alergenos: [], saludable: false, emoji: "🥤" },
+  { id: "p1", nombre: "Wrap integral de pollo", categoria: "Principal", kcal: 320, proteina: 22, carbos: 34, grasa: 9, azucar: 3, precio: 7.5, alergenos: ["gluten"], saludable: true, emoji: "🌯", stock: 25 },
+  { id: "p2", nombre: "Sándwich de palta y huevo", categoria: "Principal", kcal: 290, proteina: 13, carbos: 30, grasa: 12, azucar: 2, precio: 6.0, alergenos: ["gluten", "huevo"], saludable: true, emoji: "🥪", stock: 20 },
+  { id: "p3", nombre: "Quinua con pollo y verduras", categoria: "Principal", kcal: 340, proteina: 24, carbos: 38, grasa: 8, azucar: 4, precio: 8.5, alergenos: [], saludable: true, emoji: "🍲", stock: 18 },
+  { id: "p4", nombre: "Yogurt griego con granola", categoria: "Snack", kcal: 210, proteina: 11, carbos: 26, grasa: 6, azucar: 12, precio: 5.0, alergenos: ["lactosa", "frutos secos"], saludable: true, emoji: "🥣", stock: 30 },
+  { id: "p5", nombre: "Mix de frutos secos", categoria: "Snack", kcal: 180, proteina: 6, carbos: 12, grasa: 13, azucar: 4, precio: 4.5, alergenos: ["frutos secos"], saludable: true, emoji: "🥜", stock: 15 },
+  { id: "p6", nombre: "Mandarina pelada", categoria: "Fruta", kcal: 60, proteina: 1, carbos: 14, grasa: 0, azucar: 11, precio: 2.0, alergenos: [], saludable: true, emoji: "🍊", stock: 40 },
+  { id: "p7", nombre: "Manzana en gajos", categoria: "Fruta", kcal: 70, proteina: 0, carbos: 18, grasa: 0, azucar: 13, precio: 2.0, alergenos: [], saludable: true, emoji: "🍎", stock: 35 },
+  { id: "p8", nombre: "Uvas rojas", categoria: "Fruta", kcal: 85, proteina: 1, carbos: 21, grasa: 0, azucar: 18, precio: 2.5, alergenos: [], saludable: true, emoji: "🍇", stock: 22 },
+  { id: "p9", nombre: "Agua de piña sin azúcar", categoria: "Bebida", kcal: 45, proteina: 0, carbos: 11, grasa: 0, azucar: 8, precio: 2.5, alergenos: [], saludable: true, emoji: "🥤", stock: 50 },
+  { id: "p10", nombre: "Leche de avena", categoria: "Bebida", kcal: 120, proteina: 3, carbos: 18, grasa: 4, azucar: 9, precio: 3.5, alergenos: [], saludable: true, emoji: "🥛", stock: 28 },
+  { id: "p11", nombre: "Galleta rellena industrial", categoria: "Snack", kcal: 280, proteina: 2, carbos: 42, grasa: 12, azucar: 28, precio: 2.0, alergenos: ["gluten", "lactosa"], saludable: false, emoji: "🍪", stock: 10 },
+  { id: "p12", nombre: "Gaseosa 500ml", categoria: "Bebida", kcal: 210, proteina: 0, carbos: 53, grasa: 0, azucar: 53, precio: 3.0, alergenos: [], saludable: false, emoji: "🥤", stock: 12 },
 ];
 
 export const ESTUDIANTES_INICIALES: Estudiante[] = [
   {
-    id: "e1", nombre: "Mateo Velo", grado: "3ro Primaria B", edad: 8, peso: 27,
+    id: "e1", nombre: "Mateo Velo", grado: "3ro Primaria B", edad: 8, peso: 27, talla: 128,
     actividad: "alta", alergias: ["frutos secos"], gustos: ["cítricos", "pollo"],
+    restricciones: ["sin azúcar añadida"],
     presupuestoDiario: 15, qr: "LNC-3B-0281",
   },
   {
-    id: "e2", nombre: "Luciana Velo", grado: "4to Primaria A", edad: 10, peso: 33,
+    id: "e2", nombre: "Luciana Velo", grado: "4to Primaria A", edad: 10, peso: 33, talla: 135,
     actividad: "media", alergias: ["lactosa"], gustos: ["frutas", "quinua"],
+    restricciones: ["bajo en sodio"],
     presupuestoDiario: 14, qr: "LNC-4A-0317",
   },
 ];
