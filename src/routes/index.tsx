@@ -14,11 +14,11 @@ export const Route = createFileRoute("/")({
         content:
           "Mockup de plataforma escolar: los padres preordenan loncheras según el perfil nutricional del alumno y el quiosco despacha en segundos escaneando un QR.",
       },
-      { property: "og:title", content: "NutriControl — Nutrición escolar sin colas ni efectivo" },
+      { property: "og:title", content: "NutriControl — Loncheras saludables preordenadas con despacho por QR" },
       {
         property: "og:description",
         content:
-          "Perfil nutricional, recomendador de combos, preorden sin efectivo y despacho express por QR en el recreo.",
+          "Mockup de plataforma escolar: los padres preordenan loncheras según el perfil nutricional del alumno y el quiosco despacha en segundos escaneando un QR.",
       },
     ],
   }),

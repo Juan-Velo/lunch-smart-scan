@@ -79,14 +79,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NutriControl — Nutrición escolar con despacho por QR" },
+      { title: "NutriControl — Loncheras saludables preordenadas con despacho por QR" },
       {
         name: "description",
         content:
-          "Plataforma escolar para preordenar loncheras saludables y despacharlas por QR en el recreo.",
+          "Mockup de plataforma escolar: los padres preordenan loncheras según el perfil nutricional del alumno y el quiosco despacha en segundos escaneando un QR.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "NutriControl — Loncheras saludables preordenadas con despacho por QR" },
+      { name: "twitter:title", content: "NutriControl — Loncheras saludables preordenadas con despacho por QR" },
+      { property: "og:description", content: "Mockup de plataforma escolar: los padres preordenan loncheras según el perfil nutricional del alumno y el quiosco despacha en segundos escaneando un QR." },
+      { name: "twitter:description", content: "Mockup de plataforma escolar: los padres preordenan loncheras según el perfil nutricional del alumno y el quiosco despacha en segundos escaneando un QR." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0f3759d5b85606aaf7829b04f61dd9c4/id-preview-9908febe--7eca6ef5-75ac-4427-a90c-d04e5e21ea11.lovable.app-1787097960583.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0f3759d5b85606aaf7829b04f61dd9c4/id-preview-9908febe--7eca6ef5-75ac-4427-a90c-d04e5e21ea11.lovable.app-1787097960583.png" },
     ],
     links: [
       {
