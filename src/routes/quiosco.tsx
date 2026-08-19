@@ -12,13 +12,13 @@ import { AlertTriangle, CheckCircle2, ScanLine, Timer } from "lucide-react";
 export const Route = createFileRoute("/quiosco")({
   head: () => ({
     meta: [
-      { title: "POS Quiosco — Despacho express por QR | LoncheraQR" },
+      { title: "POS Quiosco — Despacho express por QR | NutriControl" },
       {
         name: "description",
         content:
           "Módulo de quiosco escolar: escanea el QR del alumno, valida la preorden y entrega la lonchera en segundos.",
       },
-      { property: "og:title", content: "POS Quiosco — LoncheraQR" },
+      { property: "og:title", content: "POS Quiosco — NutriControl" },
       {
         property: "og:description",
         content: "Escaneo de QR, validación de preorden y despacho en menos de 10 segundos.",
