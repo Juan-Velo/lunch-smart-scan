@@ -8,13 +8,13 @@ import { Salad, ScanLine, LayoutDashboard, Clock, ShieldCheck, Wallet } from "lu
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LoncheraQR — Loncheras saludables preordenadas con despacho por QR" },
+      { title: "NutriControl — Loncheras saludables preordenadas con despacho por QR" },
       {
         name: "description",
         content:
           "Mockup de plataforma escolar: los padres preordenan loncheras según el perfil nutricional del alumno y el quiosco despacha en segundos escaneando un QR.",
       },
-      { property: "og:title", content: "LoncheraQR — Nutrición escolar sin colas ni efectivo" },
+      { property: "og:title", content: "NutriControl — Nutrición escolar sin colas ni efectivo" },
       {
         property: "og:description",
         content:

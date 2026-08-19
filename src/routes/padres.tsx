@@ -24,13 +24,13 @@ import { AlertTriangle, Check, Sparkles, Wallet } from "lucide-react";
 export const Route = createFileRoute("/padres")({
   head: () => ({
     meta: [
-      { title: "Vista Padres — Preordena la lonchera saludable | LoncheraQR" },
+      { title: "Vista Padres — Preordena la lonchera saludable | NutriControl" },
       {
         name: "description",
         content:
           "Configura el perfil nutricional de tu hijo, recibe combos sugeridos y preordena su lonchera escolar con entrega por QR.",
       },
-      { property: "og:title", content: "Vista Padres — LoncheraQR" },
+      { property: "og:title", content: "Vista Padres — NutriControl" },
       {
         property: "og:description",
         content: "Perfil nutricional, combos recomendados y preorden con QR para el recreo.",

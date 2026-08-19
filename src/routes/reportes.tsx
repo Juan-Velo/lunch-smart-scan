@@ -19,13 +19,13 @@ import { useStore } from "@/lib/store";
 export const Route = createFileRoute("/reportes")({
   head: () => ({
     meta: [
-      { title: "Reportes y demanda — Analítica nutricional | LoncheraQR" },
+      { title: "Reportes y demanda — Analítica nutricional | NutriControl" },
       {
         name: "description",
         content:
           "Dashboard descriptivo y predictivo: consumo de macronutrientes, velocidad de despacho y previsión de demanda del quiosco escolar.",
       },
-      { property: "og:title", content: "Reportes — LoncheraQR" },
+      { property: "og:title", content: "Reportes — NutriControl" },
       {
         property: "og:description",
         content: "Consumo calórico, eficiencia de despacho y previsión de demanda diaria.",

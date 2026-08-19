@@ -19,7 +19,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               🍱
             </span>
             <span className="font-display text-xl leading-none">
-              Lonchera<span className="text-primary">QR</span>
+              Nutri<span className="text-primary">Control</span>
             </span>
           </Link>
           <nav className="flex flex-wrap items-center gap-1">
